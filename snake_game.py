@@ -1,4 +1,4 @@
-# Add background image and music
+# Go to 147 to implement the snake controlled by AI
 
 import pygame
 from pygame.locals import *
@@ -47,21 +47,20 @@ class Snake:
     def move_down(self):
         self.direction = 'down'
 
-    def walk(self, by_ai=False):
+    def walk(self):
         # update body
         for i in range(self.length - 1, 0, -1):
             self.x[i] = self.x[i - 1]
             self.y[i] = self.y[i - 1]
 
-        if not by_ai:
-            if self.direction == 'left':
-                self.x[0] -= SIZE
-            if self.direction == 'right':
-                self.x[0] += SIZE
-            if self.direction == 'up':
-                self.y[0] -= SIZE
-            if self.direction == 'down':
-                self.y[0] += SIZE
+        if self.direction == 'left':
+            self.x[0] -= SIZE
+        if self.direction == 'right':
+            self.x[0] += SIZE
+        if self.direction == 'up':
+            self.y[0] -= SIZE
+        if self.direction == 'down':
+            self.y[0] += SIZE
 
         self.draw()
 
